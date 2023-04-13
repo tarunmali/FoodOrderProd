@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This is it",
   "scripts": {
-    "start":"parcel index.html",
+    "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "jest"
   },
@@ -14,16 +14,18 @@
   "author": "Tarun Mali",
   "license": "ISC",
   "devDependencies": {
+    "buffer": "^5.7.1",
     "parcel": "^2.8.3",
     "process": "^0.11.10"
   },
   "dependencies": {
+    "@tensorflow-models/knn-classifier": "^1.2.4",
+    "@tensorflow-models/mobilenet": "^2.1.0",
+    "@tensorflow/tfjs": "^4.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "browserslist": [
     "last 2 versions"
   ]
-
-
 }

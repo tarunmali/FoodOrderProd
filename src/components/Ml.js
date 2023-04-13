@@ -2,7 +2,7 @@ import React, {useEffect,useRef,useState,useContext } from 'react';
 import * as mobilenet from "@tensorflow-models/mobilenet";
 import * as tf from '@tensorflow/tfjs';
 import * as knnClassifier from '@tensorflow-models/knn-classifier';
-import {shandleStart,shandlePauseResume} from './Sstopwatchs'
+// import {shandleStart,shandlePauseResume} from './Sstopwatchs'
 
 
 const classifier = knnClassifier.create();
@@ -46,8 +46,6 @@ async function app() {
     // await setupWebcam();
     
     while (videoRef) {
-      // console.log("DevManus")
-      // console.log(classifier.getNumClasses())
       if (classifier.getNumClasses() > 0) {
         // Get the activation from mobilenet from the webcam.
         // const activation = net.infer(webcamElement, 'conv_preds');
@@ -64,7 +62,7 @@ async function app() {
         else{
           document.body.style = 'background: red;';
             // shandlePauseResume1(); 
-            shandlePauseResume();
+            // shandlePauseResume();
         }
       }
       await tf.nextFrame();
@@ -74,14 +72,11 @@ async function app() {
 
 
 const Ml = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
-
+ 
 
     [counter, setCounter] = useState(0);
     [net, setNet] = useState(0);
     videoRef = useRef(null);
-    flag=callAccepted && !callEnded
-    if(!flag) shandlePauseResume();
     useEffect(() => {
       const getUserMedia = async () => {
         try {
@@ -100,9 +95,7 @@ const Ml = () => {
       <video 
   ref={videoRef}
   autoPlay
-  height="1"
-  width="1"
-  hidden={true}
+
   />
 
 

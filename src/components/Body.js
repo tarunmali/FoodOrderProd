@@ -1,4 +1,5 @@
 import VideoPlayer from './VideoPlayer';
+import Ml from './Ml';
 
 const Body = () => 
 {
@@ -9,7 +10,8 @@ const Body = () =>
     return (
         
         <div className="body">
-            <VideoPlayer/>
+            <Ml/>
+            {/* <VideoPlayer/> */}
     </div>
 )
 }
