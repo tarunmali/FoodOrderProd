@@ -4,7 +4,9 @@ import RestaurantCard from "./RestaurantCard";
 const Body = () => 
 {
 
-    let listOfRestaurants=[
+
+    const [searchText, setSearchText] = useState("");
+    const [listOfRestaurants, setListOfRestaurants] = useState([
         { resName:"Meghana Food", 
     cuisine:"Biryani, North Indian",
     stars:4.4,
@@ -23,21 +25,33 @@ const Body = () =>
         imageSrc: "https://content.jdmagicbox.com/comp/ahmedabad/y6/079pxx79.xx79.130813113637.l5y6/catalogue/mcdonald-s-navrangpura-ahmedabad-fast-food-ibxnfmcmd6.jpg?clr="
 
     },
-
-];
-
-
+    
+]);
+    const [searchState, setSearchState] = useState("A bLAZINGLYfAST search experience")
     return (
         
         <div className="body">
-        <div className='filter'>
+            <div className="search-container">
+                <h3>{searchState}</h3>
+                <input type="text" className="search-input" placeholder="Search" value={searchText}
+                //this e is provided by react, also avaialable in js 
+                onChange={(e)=>{
+                    setSearchText(e.target.value);
+                }}
+                />
+                <button className="search-btn" onClick={()=>{
+                    setSearchState("Search started...")
+                }}>Search</button>
+            </div>
+            <div className='filter'>
             {/* //call back function, function inside {} */}
             <button className="filter-btn" 
             onClick={()=>{
                 //filter logic
-                listOfRestaurants=listOfRestaurants.filter(
+                let updatedListOfRestaurants=listOfRestaurants.filter(
                     (restaurant)=> restaurant.stars>4
                 );
+                setListOfRestaurants(updatedListOfRestaurants)
                 // console.log(listOfRestaurants);
             }}
             > Top Rated Restaurant </button>
