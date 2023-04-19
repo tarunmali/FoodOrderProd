@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer  from "./Shimmer";
 
 function searchFunction(listOfRestaurants,searchText){
     return listOfRestaurants.filter(
@@ -26,16 +27,16 @@ const Body = () =>
     async function getRestaurants(){
         const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.72158&lng=70.9249578&page_type=DESKTOP_WEB_LISTING");
         const json= await data.json();
-
-        setListOfRestaurants(json?.data?.cards[1]?.data?.data?.cards);
+        console.log(json);
+        setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
 
     }
 
 
 
-    return (
+    return (listOfRestaurants.length!=0)?
         
-        <div className="body">
+        (<div className="body">
             <div className="search-container-1">
                 <h3>{searchState1}</h3>
                 <input type="text" className="search-input" placeholder="Search" value={searchText1}
@@ -91,8 +92,11 @@ const Body = () =>
 
 
         </div>
-    </div>
-)
+
+        </div>):
+        <Shimmer/>
+
+
 }
 
 export default Body;
