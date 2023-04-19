@@ -10,6 +10,9 @@ const Header = () => (
             src={LOGO_URL} 
             alt="" />
         </div>
+        <div className="title">
+            <h1>Food Good</h1>
+        </div>
         <div className='nav-items'>
             <ul>
                 <li>Home</li>

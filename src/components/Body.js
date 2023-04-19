@@ -1,16 +1,39 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import RestaurantCard from "./RestaurantCard";
-import {RESTAURANT_LIST} from "../utils_common_config/constants";
+
+function searchFunction(listOfRestaurants,searchText){
+    return listOfRestaurants.filter(
+        (restaurant)=> restaurant.resName.toLowerCase().includes(searchText.toLowerCase())
+    )
+}
+
 
 const Body = () => 
 {
 
-    
+    const [noOfSearchResults,setNoOfSearchResults]=useState(0);
     const [searchState1, setSearchState1] = useState("Button daba ke search karne wala")
     const [searchState2, setSearchState2] = useState("A bLAZINGLYfAST search experience")
     const [searchText1, setSearchText1] = useState("");
     const [searchText2, setSearchText2] = useState("");
-    const [listOfRestaurants, setListOfRestaurants] = useState(RESTAURANT_LIST);
+    let [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+
+    useEffect(()=>{
+        getRestaurants();
+    },[]);
+
+    async function getRestaurants(){
+        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.72158&lng=70.9249578&page_type=DESKTOP_WEB_LISTING");
+        const json= await data.json();
+        // console.log(json);
+        //do by optional chaining
+        console.log(json?.data?.cards[1]?.data?.data?.cards);
+        setListOfRestaurants(json.data.cards[1].data.data.cards);
+    }
+
+
+
     return (
         
         <div className="body">
@@ -23,10 +46,13 @@ const Body = () =>
                 }}
                 />
                 <button className="search-btn" onClick={()=>{
-                    setSearchState1("Search started...")
-                    setListOfRestaurants(RESTAURANT_LIST.filter(
-                        (restaurant)=> restaurant.resName.toLowerCase().includes(searchText1.toLowerCase())
-                    ))
+                    listOfRestaurants=searchFunction(listOfRestaurants,searchText1);
+                    setListOfRestaurants(listOfRestaurants);
+                    console.log(listOfRestaurants);
+                    console.log(listOfRestaurants.length);
+                    setNoOfSearchResults(listOfRestaurants.length)
+                    setSearchState1(`Search started... Returned ${noOfSearchResults} results`)
+                    listOfRestaurants=RESTAURANT_LIST;
                 }}>Search</button>
             </div>
 
@@ -57,7 +83,7 @@ const Body = () =>
             > Top Rated Restaurant </button>
             </div>
         <div className='res-container'>
-            {listOfRestaurants.map(restaurant=><RestaurantCard key={restaurant.imageSrc} resData={restaurant}/>)}
+            {listOfRestaurants.map(restaurant=><RestaurantCard key={restaurant.data.id} resData={restaurant}/>)}
 
 
         </div>
