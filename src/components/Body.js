@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer  from "./Shimmer";
+import NoResult from "./NoResult";
 
 function searchFunction(allRestaurants,searchText){
     return allRestaurants.filter(
@@ -34,8 +35,13 @@ const Body = () =>
     }
 
 
-
-    return (filteredRestaurants.length!=0)?
+    //early return / not rendring a component
+    if(!filteredRestaurants) return null;
+    if(filteredRestaurants.length==0) return <NoResult/>
+    
+    if(!allRestaurants) return null;
+    
+    return (allRestaurants.length!=0 || filteredRestaurants.length==0)?
         
         (<div className="body">
             <div className="search-container-1">
@@ -52,6 +58,7 @@ const Body = () =>
                     //buggy
                     // console.log(listOfRestaurants);
                     // console.log(listOfRestaurants.length);
+
                     // setNoOfSearchResults(listOfRestaurants.length);
                     // console.log(noOfSearchResults)
                     // setSearchState1(`Search started... Returned ${noOfSearchResults} results`)

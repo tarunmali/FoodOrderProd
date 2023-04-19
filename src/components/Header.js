@@ -1,8 +1,17 @@
-
+import { useState } from "react";
 import { LOGO_URL } from "../utils_common_config/constants";
 
 
-const Header = () => (
+const loggedinUser=()=>{
+    //api call tho check authentication
+    //if success return true else false
+    return false;
+}
+
+
+const Header = () => {
+    const [isLoggedin,setIsLoggedin] = useState(false);
+    return (
     <div className="header">
         <div className='logo-container'>
             <img 
@@ -21,7 +30,8 @@ const Header = () => (
                 <li>Cart</li>
             </ul>
         </div>
+        {(isLoggedin)?<button className="logout" onClick={()=> setIsLoggedin(false)}>Logout</button>:<button className="login" onClick={()=> setIsLoggedin(true)}>Login</button>}
     </div>
-)
+)}
 
 export default Header;
