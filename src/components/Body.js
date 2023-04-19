@@ -26,8 +26,9 @@ const Body = () =>
     async function getRestaurants(){
         const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.72158&lng=70.9249578&page_type=DESKTOP_WEB_LISTING");
         const json= await data.json();
-        console.log(json?.data?.cards[1]?.data?.data?.cards);
-        setListOfRestaurants(json.data.cards[1].data.data.cards);
+
+        setListOfRestaurants(json?.data?.cards[1]?.data?.data?.cards);
+
     }
 
 
@@ -46,10 +47,15 @@ const Body = () =>
                 <button className="search-btn" onClick={()=>{
                     listOfRestaurants=searchFunction(listOfRestaurants,searchText1);
                     setListOfRestaurants(listOfRestaurants);
-                    console.log(listOfRestaurants);
-                    console.log(listOfRestaurants.length);
-                    setNoOfSearchResults(listOfRestaurants.length)
-                    setSearchState1(`Search started... Returned ${noOfSearchResults} results`)
+                    
+                    
+                    
+                    //buggy
+                    // console.log(listOfRestaurants);
+                    // console.log(listOfRestaurants.length);
+                    // setNoOfSearchResults(listOfRestaurants.length);
+                    // console.log(noOfSearchResults)
+                    // setSearchState1(`Search started... Returned ${noOfSearchResults} results`)
 
                 }}>Search</button>
             </div>

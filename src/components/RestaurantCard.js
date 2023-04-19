@@ -1,7 +1,7 @@
 
 const RestaurantCard = (props) => {
 const {resData}=props;
-    console.log(resData.data);
+    // console.log(resData.data);
     return(    
     <div className="res-card" style={{
         backgroundColor:"#CCF381",
