@@ -27,6 +27,7 @@
     height: 325px;
     padding:5px;
     margin:5px;
+    background: lightgrey; 
 }
 
 .res-card:hover{
@@ -54,4 +55,12 @@
 .filter-btn{
     margin: 10px;
     cursor: pointer;
+}
+
+.shimmer-card{
+    width: 200px;
+    height: 300px;
+    padding:5px;
+    margin:5px;
+    background: lightgrey; 
 }

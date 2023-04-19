@@ -27,7 +27,7 @@ const Body = () =>
     },[]);
 
     async function getRestaurants(){
-        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.72158&lng=70.9249578&page_type=DESKTOP_WEB_LISTING");
+        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING");
         const json= await data.json();
         // console.log(json);
         setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
@@ -37,11 +37,11 @@ const Body = () =>
 
     //early return / not rendring a component
     if(!filteredRestaurants) return null;
-    if(filteredRestaurants.length==0) return <NoResult/>
+    if(filteredRestaurants.length==0 && allRestaurants.length!=0) return <NoResult/>
     
     if(!allRestaurants) return null;
     
-    return (allRestaurants.length!=0 || filteredRestaurants.length==0)?
+    return (allRestaurants.length!=0 )?
         
         (<div className="body">
             <div className="search-container-1">
