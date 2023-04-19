@@ -4,7 +4,7 @@ const {resData}=props;
     console.log(resData.data);
     return(    
     <div className="res-card" style={{
-        backgroundColor:"yellow",
+        backgroundColor:"#CCF381",
     }}>
         {/* <img className='res-logo'
         src={resData.imageSrc} alt="" /> */}

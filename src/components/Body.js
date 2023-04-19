@@ -3,7 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 
 function searchFunction(listOfRestaurants,searchText){
     return listOfRestaurants.filter(
-        (restaurant)=> restaurant.resName.toLowerCase().includes(searchText.toLowerCase())
+        (restaurant)=> restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
     )
 }
 
@@ -26,8 +26,6 @@ const Body = () =>
     async function getRestaurants(){
         const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.72158&lng=70.9249578&page_type=DESKTOP_WEB_LISTING");
         const json= await data.json();
-        // console.log(json);
-        //do by optional chaining
         console.log(json?.data?.cards[1]?.data?.data?.cards);
         setListOfRestaurants(json.data.cards[1].data.data.cards);
     }
@@ -52,7 +50,7 @@ const Body = () =>
                     console.log(listOfRestaurants.length);
                     setNoOfSearchResults(listOfRestaurants.length)
                     setSearchState1(`Search started... Returned ${noOfSearchResults} results`)
-                    listOfRestaurants=RESTAURANT_LIST;
+
                 }}>Search</button>
             </div>
 
@@ -61,8 +59,8 @@ const Body = () =>
                 <input type="text" className="search-input" placeholder="Search" value={searchText2}
                 onChange={(e)=>{
                     setSearchText2(e.target.value);
-                    setListOfRestaurants(RESTAURANT_LIST.filter(
-                        (restaurant)=> restaurant.resName.toLowerCase().includes(e.target.value.toLowerCase())
+                    setListOfRestaurants(listOfRestaurants.filter(
+                        (restaurant)=> restaurant.data.name.toLowerCase().includes(e.target.value.toLowerCase())
                     ))
                 }}
                 />
