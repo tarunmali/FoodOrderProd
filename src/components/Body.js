@@ -2,8 +2,8 @@ import {useState, useEffect} from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer  from "./Shimmer";
 
-function searchFunction(listOfRestaurants,searchText){
-    return listOfRestaurants.filter(
+function searchFunction(allRestaurants,searchText){
+    return allRestaurants.filter(
         (restaurant)=> restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
     )
 }
@@ -13,11 +13,12 @@ const Body = () =>
 {
 
     const [noOfSearchResults,setNoOfSearchResults]=useState(0);
-    const [searchState1, setSearchState1] = useState("Button daba ke search karne wala")
+    const [searchState1, setSearchState1] = useState("Press button to search")
     const [searchState2, setSearchState2] = useState("A bLAZINGLYfAST search experience")
     const [searchText1, setSearchText1] = useState("");
     const [searchText2, setSearchText2] = useState("");
-    let [listOfRestaurants, setListOfRestaurants] = useState([]);
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const [allRestaurants, setAllRestaurants] = useState([]);
 
 
     useEffect(()=>{
@@ -27,14 +28,14 @@ const Body = () =>
     async function getRestaurants(){
         const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.72158&lng=70.9249578&page_type=DESKTOP_WEB_LISTING");
         const json= await data.json();
-        console.log(json);
-        setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-
+        // console.log(json);
+        setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+        setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     }
 
 
 
-    return (listOfRestaurants.length!=0)?
+    return (filteredRestaurants.length!=0)?
         
         (<div className="body">
             <div className="search-container-1">
@@ -46,10 +47,7 @@ const Body = () =>
                 }}
                 />
                 <button className="search-btn" onClick={()=>{
-                    listOfRestaurants=searchFunction(listOfRestaurants,searchText1);
-                    setListOfRestaurants(listOfRestaurants);
-                    
-                    
+                    setFilteredRestaurants(searchFunction(allRestaurants,searchText1));
                     
                     //buggy
                     // console.log(listOfRestaurants);
@@ -66,18 +64,18 @@ const Body = () =>
                 <input type="text" className="search-input" placeholder="Search" value={searchText2}
                 onChange={(e)=>{
                     setSearchText2(e.target.value);
-                    setListOfRestaurants(listOfRestaurants.filter(
+                    setFilteredRestaurants(allRestaurants.filter(
                         (restaurant)=> restaurant.data.name.toLowerCase().includes(e.target.value.toLowerCase())
                     ))
                 }}
                 />
                 <button className="search-btn" onClick={()=>{
-                    setSearchState2("Why click anyway when results are bLAZINGLYFAST")
+                    setSearchState2("Why click anyway when results are bLAZINGLYFAST already!!!!")
 
                 }}>Search</button>
             </div>
 
-            <div className='filter'>
+            {/* <div className='filter'>
             <button className="filter-btn" 
             onClick={()=>{
                 setListOfRestaurants(listOfRestaurants.filter(
@@ -86,14 +84,15 @@ const Body = () =>
 
             }}
             > Top Rated Restaurant </button>
-            </div>
+            </div>*/}
         <div className='res-container'>
-            {listOfRestaurants.map(restaurant=><RestaurantCard key={restaurant.data.id} resData={restaurant}/>)}
+            {filteredRestaurants.map(restaurant=><RestaurantCard key={restaurant.data.id} resData={restaurant}/>)}
 
 
-        </div>
+        </div> 
 
-        </div>):
+        </div>)
+        :
         <Shimmer/>
 
 
