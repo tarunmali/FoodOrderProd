@@ -93,7 +93,9 @@ const Body = () =>
             > Top Rated Restaurant </button>
             </div>*/}
         <div className='res-container'>
-            {filteredRestaurants.map(restaurant=><RestaurantCard key={restaurant.data.id} resData={restaurant}/>)}
+            {filteredRestaurants.map(restaurant=>{
+                // console.log(restaurant.data.id);
+                return (<RestaurantCard key={restaurant.data.id} resData={restaurant}/>)})}
 
 
         </div> 
