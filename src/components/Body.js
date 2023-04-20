@@ -1,13 +1,10 @@
 import {useState, useEffect} from "react";
+
+
 import RestaurantCard from "./RestaurantCard";
 import Shimmer  from "./Shimmer";
 import NoResult from "./NoResult";
-
-function searchFunction(allRestaurants,searchText){
-    return allRestaurants.filter(
-        (restaurant)=> restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
-    )
-}
+import {searchFunction} from "../utils_common_config/helper.js";
 
 
 const Body = () => 
