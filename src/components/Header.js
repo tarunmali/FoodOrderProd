@@ -58,7 +58,7 @@ const Header = () => {
             </ul>
         </div>
 
-        <h1>{status?'You are online!!🟢':'You are offline🔴'}</h1>
+        <h1 className="font-bold text-2xl">{status?'You are online!!🟢':'You are offline🔴'}</h1>
 
         {(isLoggedin)?<button className="logout" onClick={()=> setIsLoggedin(false)}>Logout</button>:<button className="login" onClick={()=> setIsLoggedin(true)}>Login</button>}
     </div>
