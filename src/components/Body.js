@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-
+import useOnline from "../utils_common_config/useOnline";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer  from "./Shimmer";
 import NoResult from "./NoResult";
@@ -29,6 +29,12 @@ const Body = () =>
         // console.log(json);
         setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
         setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    }
+
+    const status=useOnline();
+
+    if(!status){
+        return <h1>🥲Offline, please check your connection</h1>
     }
 
 
