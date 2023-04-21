@@ -15,7 +15,7 @@ const {resData,user}=props;
         <h3>{resData.data.name}</h3>
         <h4>{resData.data.cuisines.toString()}</h4>
         {/* <h4>{resData.stars}</h4> */}
-        <h4>{user.name}</h4>
+        {/* <h4>{user.name}</h4> */}
         </Link>
     </div>
 
