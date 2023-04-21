@@ -18,49 +18,48 @@ const Header = () => {
     const [isLoggedin,setIsLoggedin] = useState(false);
     const status=useOnline();
     return (
-    <div className="header">
-        <div className='logo-container'>
+    <div className="flex justify-between bg-pink-50 shadow-xl" >
+        <div className="logo">
             <a href="/">
                 <img 
-                className='logo'
+                className="h-28 p-2"
                 src={LOGO_URL} 
                 alt="" />
             </a>
 
+        </div>
 
-        </div>
-        <div className="title">
-            <h1>Food Good</h1>
-        </div>
+
         <div className='nav-items'>
-            <ul>
+            <ul
+            className="flex py-10 ">
 
                 <Link to="/">
-                    <li>Home</li>
+                    <li className="px-2">Home</li>
                 </Link>
 
                 <Link to="/about">
-                    <li>About Us</li>
+                    <li className="px-2">About Us</li>
                 </Link>
 
                 <Link to="/contact">
-                <li>Contact Us</li>
+                <li className="px-2">Contact Us</li>
                 </Link>
 
 
-                <li>Cart</li>
+                <li className="px-2">Cart</li>
                 
                 <Link to="/instamart">
-                <li>Instamart</li>
+                <li className="px-2">Instamart</li>
                 </Link>
 
 
             </ul>
         </div>
 
-        <h1 className="font-bold text-2xl">{status?'You are online!!🟢':'You are offline🔴'}</h1>
+        <h1 className="font-bold text-2xl py-10">{status?'You are online!!🟢':'You are offline🔴'}</h1>
 
-        {(isLoggedin)?<button className="logout" onClick={()=> setIsLoggedin(false)}>Logout</button>:<button className="login" onClick={()=> setIsLoggedin(true)}>Login</button>}
+        {(isLoggedin)?<button className="pr-2" onClick={()=> setIsLoggedin(false)}>Logout</button>:<button className="login" onClick={()=> setIsLoggedin(true)}>Login</button>}
     </div>
 )}
 
