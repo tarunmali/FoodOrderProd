@@ -4,18 +4,29 @@ const useOnline =()=>{
     const [status, setStatus] = useState(navigator.onLine);
 
     useEffect(()=>{
-        window.addEventListener(
-            "online",()=>{
-                setStatus(true);
-            }
-        );
 
-        window.addEventListener(
-            "offline",()=>{
-                setStatus(false);
-            }
-        )
+        const handleOnline = ()=>{
+            setStatus(true);
+        }
+
+        const handleOffline = ()=>{
+            setStatus(false);
+        }
+
+
+        window.addEventListener("online",handleOnline);
+
+        window.addEventListener("offline",handleOffline)
+
+        return ()=>{
+            window.removeEventListener("online",handleOnline);
+            window.removeEventListener("offline",handleOffline);
+        }
+
     },[])
+
+
+
     return status;
 }
 
