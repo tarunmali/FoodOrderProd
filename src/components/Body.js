@@ -11,8 +11,8 @@ const Body = ({user}) =>
 {
 
     const [noOfSearchResults,setNoOfSearchResults]=useState(0);
-    const [searchState1, setSearchState1] = useState("Press button to search")
-    const [searchState2, setSearchState2] = useState("A bLAZINGLYfAST search experience")
+    const [searchState1, setSearchState1] = useState("Press 🔽button 🔼 to search")
+    const [searchState2, setSearchState2] = useState("🔥bLAZINGLYfAST🔥 Search Experience")
     const [searchText1, setSearchText1] = useState("");
     const [searchText2, setSearchText2] = useState("");
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -48,7 +48,9 @@ const Body = ({user}) =>
     return (allRestaurants.length!=0 )?
         
         (<div className="body">
-            <div className="search-container-1">
+            <div className="search-container-1 p-2  bg-pink-50 m-2 flex justify-between">
+
+                <div>
                 <h3>{searchState1}</h3>
                 <input type="text" className="search-input" placeholder="Search" value={searchText1}
                 //this e is provided by  js 
@@ -56,7 +58,7 @@ const Body = ({user}) =>
                     setSearchText1(e.target.value);
                 }}
                 />
-                <button className="search-btn" onClick={()=>{
+                <button className="search-btn p-2 m-2 bg-purple-900 hover:bg-green-900 text-white rounded-md" onClick={()=>{
                     setFilteredRestaurants(searchFunction(allRestaurants,searchText1));
                     
                     //buggy
@@ -68,9 +70,9 @@ const Body = ({user}) =>
                     // setSearchState1(`Search started... Returned ${noOfSearchResults} results`)
 
                 }}>Search</button>
-            </div>
+                </div>
 
-            <div className="search-container-2">
+                <div className="search-container-2">
                 <h3>{searchState2}</h3>
                 <input type="text" className="search-input" placeholder="Search" value={searchText2}
                 onChange={(e)=>{
@@ -80,11 +82,15 @@ const Body = ({user}) =>
                     ))
                 }}
                 />
-                <button className="search-btn" onClick={()=>{
+                <button className="search-btn p-2 m-2 bg-purple-900 hover:bg-green-900 text-white rounded-md" onClick={()=>{
                     setSearchState2("Why click anyway when results are bLAZINGLYFAST already!!!!")
 
                 }}>Search</button>
             </div>
+
+            </div>
+
+            
 
             {/* <div className='filter'>
             <button className="filter-btn" 
@@ -96,7 +102,7 @@ const Body = ({user}) =>
             }}
             > Top Rated Restaurant </button>
             </div>*/}
-        <div className='res-container'>
+        <div className="res-container flex flex-wrap bg-purple-100">
             {filteredRestaurants.map(restaurant=>{
                 // console.log(restaurant.data.id);
                 return (<RestaurantCard user={user} key={restaurant.data.id} resData={restaurant}/>)})}

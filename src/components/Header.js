@@ -18,7 +18,7 @@ const Header = () => {
     const [isLoggedin,setIsLoggedin] = useState(false);
     const status=useOnline();
     return (
-    <div className="flex justify-between bg-pink-50 shadow-xl" >
+    <div className="flex justify-between bg-pink-50 shadow-xl   sm:bg-purple-50" >
         <div className="logo">
             <a href="/">
                 <img 
@@ -59,7 +59,7 @@ const Header = () => {
 
         <h1 className="font-bold text-2xl py-10">{status?'You are online!!🟢':'You are offline🔴'}</h1>
 
-        {(isLoggedin)?<button className="pr-2" onClick={()=> setIsLoggedin(false)}>Logout</button>:<button className="login" onClick={()=> setIsLoggedin(true)}>Login</button>}
+        {(isLoggedin)?<button className="auth" onClick={()=> setIsLoggedin(false)}>Logout</button>:<button className="login" onClick={()=> setIsLoggedin(true)}>Login</button>}
     </div>
 )}
 
