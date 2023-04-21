@@ -6,8 +6,8 @@ import Shimmer  from "./Shimmer";
 import NoResult from "./NoResult";
 import {searchFunction} from "../utils_common_config/helper.js";
 
-
-const Body = () => 
+//destructuring on the fly
+const Body = ({user}) => 
 {
 
     const [noOfSearchResults,setNoOfSearchResults]=useState(0);
@@ -99,7 +99,7 @@ const Body = () =>
         <div className='res-container'>
             {filteredRestaurants.map(restaurant=>{
                 // console.log(restaurant.data.id);
-                return (<RestaurantCard key={restaurant.data.id} resData={restaurant}/>)})}
+                return (<RestaurantCard user={user} key={restaurant.data.id} resData={restaurant}/>)})}
 
 
         </div> 
