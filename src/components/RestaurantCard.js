@@ -13,7 +13,7 @@ const {resData,user}=props;
         src={} alt="" /> */}
         <img className='res-logo' src={IMG_CDN_URL+resData.data.cloudinaryImageId} alt="" />
         <h3 className="font-bold text-xl">{resData.data.name}</h3>
-        <h4 className="flex">{resData.data.cuisines.toString()}</h4>
+        <h4 className="flex">{resData.data.cuisines.join(", ")}</h4>
         {/* <h4>{resData.stars}</h4> */}
         {/* <h4>{user.name}</h4> */}
         </Link>

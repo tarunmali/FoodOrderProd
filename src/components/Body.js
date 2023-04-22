@@ -29,12 +29,14 @@ const Body = ({user}) =>
     headers: {
         'x-cors-api-key': 'temp_e281277ba3e28656d4de5f8bd33078f6',
     }
-    });
+    }
+    
+    );
         
         
        
         const json= await data.json();
-        // console.log(json);
+
         setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
         setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     }
