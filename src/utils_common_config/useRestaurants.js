@@ -9,7 +9,15 @@ const useRestaurants = (resId) => {
     },[]);
 
     async function getRestaurantInfo(){
-        const data= await fetch(FETCH_MENU_URL+resId)
+        const data= await
+        fetch(`https://proxy.cors.sh/${FETCH_MENU_URL}/${resId}`, {
+            headers: {
+                'x-cors-api-key': 'temp_e281277ba3e28656d4de5f8bd33078f6',
+            }
+            });
+        
+        
+   
         const json= await data.json();
         setRestaurantInfo(json.data);
     }
