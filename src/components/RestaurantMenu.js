@@ -25,8 +25,9 @@ const RestaurantMenu = ({ restaurant }) => {
         <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.avgRating} stars</h3>
         <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.city}</h3>
         <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3> 
-        {console.log(restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.find(x => x?.card?.card?.title=="Recommended"))}
-
+        
+      
+        {restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card.itemCards.map(x => <h6> {x.card.info.name} </h6> )} 
     </div> 
 }
 
