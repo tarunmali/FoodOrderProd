@@ -1,9 +1,12 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+
 import useOnline from "../utils_common_config/useOnline";
-
-
 import { LOGO_URL } from "../utils_common_config/constants";
+import { useSelector } from "react-redux";
+import store from "../utils_common_config/store";
 // import Logo from "../assests/img/logo.jpeg"
 // import UserContext from "../utils_common_config/UserContext";
 
@@ -21,6 +24,7 @@ const Header = () => {
 
 
     // const {user}=useContext(UserContext);
+    const cartItems=useSelector(store=>store.cart.items);
 
 
     return (
@@ -53,12 +57,12 @@ const Header = () => {
                 </Link>
 
 
-                <li className="px-2">Cart</li>
                 
                 <Link to="/instamart">
                 <li className="px-2">Instamart</li>
                 </Link>
 
+                <li className="px-2">Cart-  {cartItems.length}</li>
 
             </ul>
         </div>
