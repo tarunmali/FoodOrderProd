@@ -4,10 +4,9 @@ const Fooditem =(props)=>{
     const {name,description,imageId,price} =props.item;
 
     return (<div>
-        <h1>Fooditem</h1>
         {/* <h1>{props.item.name}</h1> */}
         {/* {console.log(props)} */}
-        <div className="w-56 p-2 m-2 shadow-lg bg-pink-50">
+        <div className="w-56 p-2 m-2 shadow-lg bg-pink-50 ">
         <img src={IMG_CDN_URL + imageId} alt="" />
         {/* {console.log(IMG_CDN_URL + imageId)} */}
         <h1 className="font-bold text-xl">{name}</h1>
