@@ -28,8 +28,11 @@ const RestaurantMenu = ({ restaurant }) => {
         return <Shimmer/>
     }
 
-    return <div className="restaurant-menu">
-        <div>
+    return <div className="restaurant-menu flex">
+
+
+{restaurantInfo && restaurantInfo.cards && restaurantInfo.cards.length > 0 && (
+        <div >
             <h1>{`Restaurant id: ${resId}`}</h1>
             <h2>{restaurantInfo?.cards[0]?.card?.card?.info?.name}</h2>
             <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.area}</h3>
@@ -37,21 +40,17 @@ const RestaurantMenu = ({ restaurant }) => {
             <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.avgRating} stars</h3>
             <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.city}</h3>
             <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3> 
-        </div>
-
-        <div>
-            <button 
-            className="p-2 m-5 bg-green-100"
-            onClick={()=>handleAddItem()}
-            >
-            Add to Cart
-            </button>
-        </div>
+        </div>)}
 
 
-        <div>
+
+        <div className="p-5">
         <h1 className="text-5xl">Menu</h1>
-            {restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card.itemCards.map(x => <h6> {x.card.info.name} </h6> )}
+            {restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card.itemCards.map(x => <h6> {x.card.info.name} <button
+            className="p-1  bg-green-50"
+            onClick={()=>addFoodItem()}
+            >Add</button>
+             </h6> )}
         </div>
 
     </div> 
