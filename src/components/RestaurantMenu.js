@@ -19,9 +19,9 @@ const RestaurantMenu = ({ restaurant }) => {
 
     const dispatch = useDispatch();
 
-    const handleAddItem =() =>{
+    const addFoodItem =(item) =>{
         //dispatch an action
-        dispatch(addItem("Grapes"));
+        dispatch(addItem(item));
     }
 
     if(!restaurantInfo){
@@ -48,7 +48,7 @@ const RestaurantMenu = ({ restaurant }) => {
         <h1 className="text-5xl">Menu</h1>
             {restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card.itemCards.map(x => <h6> {x.card.info.name} <button
             className="p-1  bg-green-50"
-            onClick={()=>addFoodItem()}
+            onClick={()=>addFoodItem(x.card.info.name)}
             >Add</button>
              </h6> )}
         </div>
