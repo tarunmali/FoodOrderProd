@@ -24,14 +24,14 @@ const RestaurantMenu = ({ restaurant }) => {
         dispatch(addItem(item));
     }
 
-    if(!restaurantInfo){
+    if(!restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards){
         return <Shimmer/>
     }
 
     return <div className="restaurant-menu flex">
 
 
-{restaurantInfo && restaurantInfo.cards && restaurantInfo.cards.length > 0 && (
+{restaurantInfo && restaurantInfo.cards && restaurantInfo.cards.length > 0 && restaurantInfo.cards[2]  &&(
         <div >
             <h1>{`Restaurant id: ${resId}`}</h1>
             <h2>{restaurantInfo?.cards[0]?.card?.card?.info?.name}</h2>
@@ -48,7 +48,7 @@ const RestaurantMenu = ({ restaurant }) => {
         <h1 className="text-5xl">Menu</h1>
             {restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card.itemCards.map(x => <h6> {x.card.info.name} <button
             className="p-1  bg-green-50"
-            onClick={()=>addFoodItem(x.card.info.name)}
+            onClick={()=>addFoodItem(x.card.info)}
             >Add</button>
              </h6> )}
         </div>

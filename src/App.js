@@ -15,6 +15,7 @@ import Shimmer from './components/Shimmer';
 // import Instamart from './components/Instamart';
 // import UserContext from './utils_common_config/UserContext';
 import store from './utils_common_config/store';
+import Cart from './components/Cart';
 
 const Instamart = lazy(()=>import('./components/Instamart'));
  
@@ -71,6 +72,10 @@ const appRouter=createBrowserRouter([
                 <Suspense fallback={<Shimmer/>}>
                     <Instamart/>
                 </Suspense>),
+            },
+            {
+                path: "/cart",
+                element:  <Cart/>
             }
 
         ]

@@ -25,6 +25,7 @@ const Body = ({user}) =>
 
     async function getRestaurants(){
         const data= await 
+        // fetch('www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING');
         fetch('https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING', {
     headers: {
         'x-cors-api-key': 'temp_e281277ba3e28656d4de5f8bd33078f6',
@@ -32,11 +33,9 @@ const Body = ({user}) =>
     }
     
     );
-        
-        
-       
-        const json= await data.json();
 
+
+        const json= await data.json();
         setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
         setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     }

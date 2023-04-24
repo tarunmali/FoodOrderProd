@@ -25,7 +25,7 @@ const Header = () => {
 
     // const {user}=useContext(UserContext);
     const cartItems=useSelector(store=>store.cart.items);
-
+    console.log(cartItems);
 
     return (
     <div className="flex justify-between bg-pink-50 shadow-xl   sm:bg-purple-50" >
@@ -62,7 +62,10 @@ const Header = () => {
                 <li className="px-2">Instamart</li>
                 </Link>
 
+                <Link to="/cart">
                 <li className="px-2">Cart-  {cartItems.length}</li>
+                </Link>
+
 
             </ul>
         </div>
