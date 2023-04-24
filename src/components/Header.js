@@ -4,8 +4,8 @@ import useOnline from "../utils_common_config/useOnline";
 
 
 import { LOGO_URL } from "../utils_common_config/constants";
-import Logo from "../assests/img/logo.jpeg"
-import UserContext from "../utils_common_config/UserContext";
+// import Logo from "../assests/img/logo.jpeg"
+// import UserContext from "../utils_common_config/UserContext";
 
 
 const loggedinUser=()=>{
@@ -20,7 +20,7 @@ const Header = () => {
     const status=useOnline();
 
 
-    const {user}=useContext(UserContext);
+    // const {user}=useContext(UserContext);
 
 
     return (
@@ -28,7 +28,7 @@ const Header = () => {
         <div className="logo">
             <a href="/">
                 <img 
-                className="h-28 p-2"
+                className="h-24 p-2"
                 src={LOGO_URL} 
                 alt="" />
             </a>
@@ -63,9 +63,9 @@ const Header = () => {
             </ul>
         </div>
 
-        <h1 className="font-bold text-2xl py-10">{status?'You are online!!🟢':'You are offline🔴'}</h1>
-        <h3 className="py-10 font-bold text-red-900">{`Welcome ${user.name} to FOODGOOD`}</h3>
-        {(isLoggedin)?<button className="auth py-10" onClick={()=> setIsLoggedin(false)}>Logout</button>:<button className="login" onClick={()=> setIsLoggedin(true)}>Login</button>}
+        <h1 className="font-bold  py-10">{status?'You are online🟢':'You are offline🔴'}</h1>
+        {/* <h3 className="py-10 font-bold text-red-900">{`Welcome ${user.name} to FOODGOOD`}</h3>
+        {(isLoggedin)?<button className="auth py-10" onClick={()=> setIsLoggedin(false)}>Logout</button>:<button className="login" onClick={()=> setIsLoggedin(true)}>Login</button>} */}
     </div>
 )}
 

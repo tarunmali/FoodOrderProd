@@ -11,9 +11,9 @@ const Body = ({user}) =>
 {
 
     const [noOfSearchResults,setNoOfSearchResults]=useState(0);
-    const [searchState1, setSearchState1] = useState("Press 🔽button 🔼 to search")
-    const [searchState2, setSearchState2] = useState("🔥bLAZINGLYfAST🔥 Search Experience")
-    const [searchText1, setSearchText1] = useState("");
+    // const [searchState1, setSearchState1] = useState("Press 🔽button 🔼 to search")
+    // const [searchState2, setSearchState2] = useState("🔥bLAZINGLYfAST🔥 Search Experience")
+    // const [searchText1, setSearchText1] = useState("");
     const [searchText2, setSearchText2] = useState("");
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [allRestaurants, setAllRestaurants] = useState([]);
@@ -58,9 +58,9 @@ const Body = ({user}) =>
     return (allRestaurants.length!=0 )?
         
         (<div className="body">
-            <div className="search-container-1 p-2  bg-pink-50 m-2 flex justify-between">
+            <div className="search-wala-header p-2  bg-pink-50 m-2 flex justify-between">
 
-                <div>
+                {/* <div>
                 <h3>{searchState1}</h3>
                 <input type="text" className="search-input" placeholder="Search" value={searchText1}
                 //this e is provided by  js 
@@ -80,10 +80,10 @@ const Body = ({user}) =>
                     // setSearchState1(`Search started... Returned ${noOfSearchResults} results`)
 
                 }}>Search</button>
-                </div>
+                </div> */}
 
                 <div className="search-container-2">
-                <h3>{searchState2}</h3>
+                {/* <h3>{searchState2}</h3> */}
                 <input type="text" className="search-input" placeholder="Search" value={searchText2}
                 onChange={(e)=>{
                     setSearchText2(e.target.value);
