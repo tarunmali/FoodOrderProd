@@ -48,9 +48,9 @@ const Header = () => {
                     <li className="px-2">Home</li>
                 </Link>
 
-                <Link to="/about">
+                {/* <Link to="/about">
                     <li className="px-2">About Us</li>
-                </Link>
+                </Link> */}
 
                 <Link to="/contact">
                 <li className="px-2">Contact Us</li>
@@ -59,7 +59,7 @@ const Header = () => {
 
                 
                 <Link to="/instamart">
-                <li className="px-2">Instamart</li>
+                <li className="px-2">F.A.Q.</li>
                 </Link>
 
                 <Link to="/cart">

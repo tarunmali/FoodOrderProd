@@ -34,12 +34,12 @@ const RestaurantMenu = ({ restaurant }) => {
 {restaurantInfo && restaurantInfo.cards && restaurantInfo.cards.length > 0 && restaurantInfo.cards[2]  &&(
         <div >
             <h1>{`Restaurant id: ${resId}`}</h1>
-            <h2>{restaurantInfo?.cards[0]?.card?.card?.info?.name}</h2>
+            <h2 className="font-bold">{restaurantInfo?.cards[0]?.card?.card?.info?.name}</h2>
             <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.area}</h3>
             <img src={IMG_CDN_URL+restaurantInfo?.cards[0]?.card?.card?.info?.cloudinaryImageId} alt="" />
-            <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.avgRating} stars</h3>
-            <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.city}</h3>
-            <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3> 
+            <h3 className="font-bold">{restaurantInfo?.cards[0]?.card?.card?.info?.avgRating} stars⭐</h3>
+            <h3 >{restaurantInfo?.cards[0]?.card?.card?.info?.city}</h3>
+            <h3 className="font-bold">{restaurantInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3> 
         </div>)}
 
 
