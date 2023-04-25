@@ -36,43 +36,44 @@ const Comtact = () => {
     </div>
 
 
-             <div className="contact_form">
+             <div className="contact_form ml-80">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-10 offset-lg-1">
-                            <div className="contact_form_container py-5">
-                                <div className="contact_form_title">
+                        <div className="lg:w-4/5 pr-4 pl-4 lg:mx-1/6
+">
+                            <div className="contact_form_container py-5 shadow-5xl">
+                                <div className="contact_form_title shad">
                                     Get in Touch </div>
-                                <form method="POST" id="contact_form">
+                                <form method="POST" id="contact_form ">
                                      <div className="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between"> 
-                                        <input type="text" id="contact_form_name"
-                                            className="contact_form_name input_field"
+                                        <input type="text" id="contact_form_name "
+                                            className="contact_form_name input_field shadow-sm"
                                                 name="name"
 
                                             placeholder="Your name" required />
                                         
                                          <input type="email" id="contact_form_email"
-                                            className="contact_form_email input_field"
+                                            className="contact_form_email input_field shadow-sm"
                                                 name="email"
 
                                             placeholder="Your Email" required />
                                         
                                          <input type="number" id="contact_form_phone"
-                                            className="contact_form_phone input_field"
+                                            className="contact_form_phone input_field shadow-sm"
                                             name="phone"
 
                                         placeholder="Your Phone Number" required  />
                                     </div>
 
                                     <div className="contact_form_text mt-5">
-                                        <textarea className="text_field contact_form_message"
+                                        <textarea className="text_field contact_form_message border"
                                             name="message"
 
-                                            placeholder="Message" cols="30" rows="10"></textarea>
+                                            placeholder="Message" cols="70" rows="10"></textarea>
                                     </div>
 
-                                    <div className="contact_form_button">
-                                        <button type="submit" className="button contact_submit_button"
+                                    <div className="contact_form_button ">
+                                        <button type="submit" className="button contact_submit_button bg-green-200 p-2 m-100"
                                      >Send Message</button>
                                     </div>
                                 </form>

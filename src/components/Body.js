@@ -25,14 +25,17 @@ const Body = ({user}) =>
 
     async function getRestaurants(){
         const data= await 
+        fetch(`https://sea-turtle-app-pt8et.ondigitalocean.app/api/restaurants?lat=19.0759837&lng=72.8776559`);
         // fetch('www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING');
-        fetch('https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING', {
-    headers: {
-        'x-cors-api-key': 'temp_e281277ba3e28656d4de5f8bd33078f6',
-    }
-    }
+    //     fetch('https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING', {
+    // headers: {
+    //     'x-cors-api-key': 'temp_e281277ba3e28656d4de5f8bd33078f6',
+    // }
+    // }
     
-    );
+    // );
+    
+
 
 
         const json= await data.json();
@@ -91,7 +94,7 @@ const Body = ({user}) =>
                     ))
                 }}
                 />
-                <button className="search-btn p-2 m-2 bg-purple-900 hover:bg-green-900 text-white rounded-md" onClick={()=>{
+                <button className="search-btn px-2 m-2 bg-purple-900 hover:bg-green-900 text-white rounded-md" onClick={()=>{
                     setSearchState2("Why click anyway when results are bLAZINGLYFAST already!!!!")
 
                 }}>Search</button>

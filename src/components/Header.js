@@ -38,14 +38,14 @@ const Header = () => {
             </a>
 
         </div>
-
+        
 
         <div className='nav-items'>
             <ul
             className="flex py-10 ">
 
                 <Link to="/">
-                    <li className="px-2">Home</li>
+                    <li className="px-2"  >Home🏠</li>
                 </Link>
 
                 {/* <Link to="/about">
@@ -53,17 +53,17 @@ const Header = () => {
                 </Link> */}
 
                 <Link to="/contact">
-                <li className="px-2">Contact Us</li>
+                <li className="px-2">Contact Us📞</li>
                 </Link>
 
 
                 
                 <Link to="/instamart">
-                <li className="px-2">F.A.Q.</li>
+                <li className="px-2">Technologies Used💻</li>
                 </Link>
 
                 <Link to="/cart">
-                <li className="px-2">Cart-  {cartItems.length}</li>
+                <li className="px-2">Cart🛒-  {cartItems.length}</li>
                 </Link>
 
 

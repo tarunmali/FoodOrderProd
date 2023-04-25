@@ -20,27 +20,27 @@ const Instamart = () => {
 
 
         return(<div>
-                <h1 className="text-3xl p-2 m-2 font-bold">Instamart</h1>
+                <h1 className="text-3xl p-2 m-2 font-bold"></h1>
                 <Section 
                 setIsVisible={()=>setVisibleSection("about")}
-                title={"About Instamart"} 
-                description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quas porro voluptatibus atque minima modi neque accusantium velit, iure dignissimos beatae tempore sit odit quisquam similique maxime nisi vero sed ad nostrum. Sunt incidunt quo saepe? Sed, fugit quos. Dicta culpa porro expedita cupiditate deleniti soluta deserunt iste beatae, obcaecati minima incidunt nemo ipsa est earum nihil suscipit quam iusto quos distinctio reprehenderit dolorem accusamus quasi fugiat? Cum voluptatem ducimus, labore perferendis accusantium quo dolore, delectus natus fuga quae similique incidunt ad. Aliquam animi non voluptatum, hic commodi provident fugit quam quasi nam consequatur inventore ducimus eius in, libero saepe."}
+                title={"React.JS"} 
+                description={"This is a blazingly fast 🔥and highly scalable 🚀 website single page app made by React. THe code is production ready and uses Parcel📦 for bundling. The very page you are seeing is lazy loaded and hence have a separate bundle sent."}
                 isVisible={visibleSection==="about"}
                 />
 
-                <h1 className="text-3xl p-2 m-2 font-bold">Instamart</h1>
+
                 <Section 
                 setIsVisible={()=>setVisibleSection("team")}
-                title={"Team Instamart"} 
-                description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quas porro voluptatibus atque minima modi neque accusantium velit, iure dignissimos beatae tempore sit odit quisquam similique maxime nisi vero sed ad nostrum. Sunt incidunt quo saepe? Sed, fugit quos. Dicta culpa porro expedita cupiditate deleniti soluta deserunt iste beatae, obcaecati minima incidunt nemo ipsa est earum nihil suscipit quam iusto quos distinctio reprehenderit dolorem accusamus quasi fugiat? Cum voluptatem ducimus, labore perferendis accusantium quo dolore, delectus natus fuga quae similique incidunt ad. Aliquam animi non voluptatum, hic commodi provident fugit quam quasi nam consequatur inventore ducimus eius in, libero saepe."}
+                title={"Tailwind CSS"} 
+                description={"The styling of the website is done using tailwind css. It is a utility first css framework. It is highly customizable and has a lot of features. It is very easy to use and is very fast. Tailwind CSS uses postcss along with Parcel to prune the unused CSS and make the website bundle smaller."}
                 isVisible={visibleSection==="team"}
                 />
 
-                <h1 className="text-3xl p-2 m-2 font-bold">Instamart</h1>
+
                 <Section 
                 setIsVisible={()=>setVisibleSection("careers")}
-                title={"Careers"} 
-                description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quas porro voluptatibus atque minima modi neque accusantium velit, iure dignissimos beatae tempore sit odit quisquam similique maxime nisi vero sed ad nostrum. Sunt incidunt quo saepe? Sed, fugit quos. Dicta culpa porro expedita cupiditate deleniti soluta deserunt iste beatae, obcaecati minima incidunt nemo ipsa est earum nihil suscipit quam iusto quos distinctio reprehenderit dolorem accusamus quasi fugiat? Cum voluptatem ducimus, labore perferendis accusantium quo dolore, delectus natus fuga quae similique incidunt ad. Aliquam animi non voluptatum, hic commodi provident fugit quam quasi nam consequatur inventore ducimus eius in, libero saepe."}
+                title={"Redux.JS"} 
+                description={"The website uses Redux.JS toolkit for state management. Redux kind of provide a very big object called store which contains the state of the application. The store is immutable and hence we cannot directly change the state. We can only dispatch actions to the store which will then update the state. The store is then subscribed to the components and the components are re-rendered when the state changes. In our case we have a cart slice which contains the state of the cart. The cart slice is then subscribed to the cart component and the cart component is re-rendered when the state of the cart changes."}
                 isVisible={visibleSection==="careers"}
                 />
 
