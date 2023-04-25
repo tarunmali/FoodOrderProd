@@ -1,6 +1,6 @@
 export const IMG_CDN_URL="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-export const FETCH_MENU_URL= "http://localhost:3000/api/menu?lat=28.5270362latquery&lng=77.13593279999999:lngquery&restaurantId="
+export const FETCH_MENU_URL= "https://sea-turtle-app-pt8et.ondigitalocean.app/api/menu?lat=28.5270362latquery&lng=77.13593279999999:lngquery&restaurantId="
 // https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5270362&lng=77.13593279999999&restaurantId=
 
 
