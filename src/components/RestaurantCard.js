@@ -9,13 +9,9 @@ const {resData,user}=props;
 
     <div className="res-card w-[200px] p-2 m-2 shadow-lg bg-pink-50" >
         <Link to= {"/restaurant/"+resData.data.id} >
-        {/* <img 
-        src={} alt="" /> */}
         <img className='res-logo' src={IMG_CDN_URL+resData.data.cloudinaryImageId} alt="" />
         <h3 className="font-bold text-xl">{resData.data.name}</h3>
         <h4 className="flex">{resData.data.cuisines.join(", ")}</h4>
-        {/* <h4>{resData.stars}</h4> */}
-        {/* <h4>{user.name}</h4> */}
         </Link>
     </div>
 
